@@ -140,7 +140,7 @@ finalState = State([[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,0]])
 #finalState = State([[1,2],[3,0]])
 result, state = BFS(initialState, finalState,["l","u","r","d"])
 print(("no" if result==False else " ") + "se hallo")
-print("wwwwwwwwwwwwwwwwwww")
+print(".....")
 while (state != None):
     print(state.table)
     state = state.father
