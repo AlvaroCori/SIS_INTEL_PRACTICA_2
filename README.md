@@ -33,40 +33,54 @@ The language used for the implementation of the algorithms is Python 3. This is 
 A table with a random order of elements.
 
 ###### Goal State:
-A table with a sequential order of elements (1,2,3,…,n*n-1,0)
-Actions:
+A table with a sequential order of elements (1,2,3,…,n  * n-1,0)
+###### Actions:
 Move the pieces to the free space. Minimum of 2 (for the corners). 3 (for the borders). And 4 for the middle squares.
-Transition Module
+###### Transition Module:
 Action => (up,left, right, down)
 Transition(actualState, action)
-Test of the target:
+###### Test of the target:
 Check that the current state is the target state.
-Cost Of the path:
+###### Cost of the path:
 The quantity of states that the algorithms visited.
 
  
 
-EXPERIMENTS
-Experiments of N=2 (3_puzzle):
+### EXPERIMENTS
+###### Experiments of N=2 (3_puzzle):
 For 3-Puzzle, we could take two different paths. Each of them has states that the other one couldn’t achieve. For example in the path of the left, both routes traverse to the objective state. The right one is longer than the left one. Also, it’s notable that the right path couldn’t achieve the objective state even when we expanded every possible state.
 For the left path, we got 11 different states, and for the right one we got 13 different states, which gives us the result of 24 different combinations without repetitions that we could achieve on a 3-puzzle with an empty square.
+
 The states that were generated manually demonstrate that the input generates different states in the initial state of 3_puzzle. Both initial states are of 3 pieces, but the first has a degree of 2, and the other one has degree of 1.
+
 On the left example, the possible paths constraints two actions right square and up squares. Moving the piece at the left generates a greater quantity of states than the 4 states that generate the transition of when we move down the piece in the initial state.
+
 On the right path, it doesn’t matter which direction you choose to move a piece, any of the paths could achieve the objective states.
-Manually search for n = 2.
-Initial State:
-2 3
-1 0
-Objective State:
-1 2
-3 0
-Path from initial state to goal state.
-[[2, 3], [1, 0]]
-[[2, 0], [1, 3]]
-[[0, 2], [1, 3]]
-[[1, 2], [0, 3]]
-[[1, 2], [3, 0]]
-Height: 4
+
+###### Manually search for n = 2.
+###### Initial State:
+ 2 3
+ 1 0
+###### Objective State:
+ 1 2
+ 3 0
+###### Path from initial state to goal state.
+[[2, 3],
+ [1, 0]]
+
+[[2, 0],
+ [1, 3]]
+
+[[0, 2],
+ [1, 3]]
+
+[[1, 2],
+ [0, 3]]
+
+[[1, 2],
+ [3, 0]]
+ 
+###### Height: 4
 BFS
 Number of total states: 11
 IDDFS
