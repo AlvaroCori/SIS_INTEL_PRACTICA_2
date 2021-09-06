@@ -221,25 +221,13 @@ To clarify, in a worst case scenario in which both algorithms search for the sam
 
 ##### Bibliography
 
-Python Queue: (from collections import deque)
-https://docs.hektorprofe.net/python/colecciones-de-datos/colas/
- Copy objects: (import copy)
-https://pymotw.com/2/copy/
-
-8-puzzle Solver:
-https://deniz.co/8-puzzle-solver/s
- 
-Obtain the actual path: (import os)
-https://www.delftstack.com/es/howto/python/python-get-path/
- 
-Open input from file txt:
-https://decodigo.com/python-leer-un-archivo-de-texto
-
-An example of Iterative Deepening (IDDFS):
-    	https://www.geeksforgeeks.org/iterative-deepening-searchids-iterative-deepening-depth-first-searchiddfs/
-How python treats the stack:
-https://www.geeksforgeeks.org/stack-in-python/
-Game-Trees:
-https://www.andrew.cmu.edu/course/15-121/lectures/Game%20Trees/Game%20Trees.html
+###### Python Queue: (from collections import deque)  https://docs.hektorprofe.net/python/colecciones-de-datos/colas/
+###### Copy objects: (import copy) https://pymotw.com/2/copy/
+###### 8-puzzle Solver: https://deniz.co/8-puzzle-solver/s
+###### Obtain the actual path: (import os) https://www.delftstack.com/es/howto/python/python-get-path/
+###### Open input from file txt: https://decodigo.com/python-leer-un-archivo-de-texto
+###### An example of Iterative Deepening (IDDFS): https://www.geeksforgeeks.org/iterative-deepening-searchids-iterative-deepening-depth-first-searchiddfs/
+###### How python treats the stack: https://www.geeksforgeeks.org/stack-in-python/
+###### Game-Trees: https://www.andrew.cmu.edu/course/15-121/lectures/Game%20Trees/Game%20Trees.html
  
 
