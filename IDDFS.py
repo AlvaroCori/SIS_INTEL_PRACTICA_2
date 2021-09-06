@@ -5,7 +5,7 @@ import os
 from typing import Counter
 
 from State import State
-
+Counter = 0
 #Compare all elements of 2 tables
 def goalTest(state, goalState):
     rows = len(goalState.table)
@@ -103,6 +103,8 @@ def DLSRecursive(state,goalState,actions,limit):
         if goalTest(state,goalState) : return "success", state
         elif (limit == 0) : return "cutoff", state   
         else:
+            global Counter
+            Counter+=1
             cutOffOcurred=False
             for a in actions:
                 if (evaluateAction(state, a)):
@@ -117,18 +119,17 @@ def DLSRecursive(state,goalState,actions,limit):
             else: 
                 return "failure", state
 
-#enwraper
-def DLS(initialState,goalState,actions):
-    limit=5
-    return DLSRecursive(initialState,goalState,actions,limit)
-
 #function
 def IDDFS(initialState,goalState,actions):
         result = "failure"
         depth = 0
+        counters = []
         while depth < 16:
+            global Counter
+            Counter = 0
             result, state = DLSRecursive(initialState,goalState,actions,depth)
+            counters.append(Counter)
             if (result != "cutoff"):
-                return result, state
+                return result, state, counters
             depth = depth +1
-        return result, None
+        return result, None, counters

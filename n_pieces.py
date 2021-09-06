@@ -62,10 +62,12 @@ def results(state):
     print(f"La altura del arbol alcanzo a los {len(resultTables)-1}")
     print("Los pasos son:")
     for table in reversed(resultTables):
-        print(table)
+        for line in table:
+            print(line)
+        print("----------------")
 
 actions = ["l","u","r","d"]
-nameTxt = "input_n_3.txt"
+nameTxt = "input_n_4.txt"
 option = -1
 initialTable, goalTable = loadTxt(os.path.abspath(os.getcwd()), nameTxt)
 initialState = State(initialTable)
@@ -85,13 +87,23 @@ while (option != 0):
         initialTable, goalTable = loadTxt(os.path.abspath(os.getcwd()), nameTxt)
         initialState = State(initialTable)
         goalState = State(goalTable)
+
     elif (option == 3):
         result, state,counter = BFS(initialState, goalState, actions)
-        print(("no" if result==False else " ") + "se hallo")
+        print(("no" if result==False else "") + "se hallo el estado objetivo.")
         print("" if result==False else f"la cantidad de estados es: {counter}")
-        results(state)
+        if (result):  
+            results(state)
+
     elif (option == 4):
-        result, state = IDDFS(initialState, goalState, actions)
-        results(state)
+        result, state, counters = IDDFS(initialState, goalState, actions)
+        if (result == "success"):
+            print("Se hallo el estado objetivo.")
+            results(state)
+            print(f"La cantidad de estados por niveles son {counters}")
+        if (result == "cutoff"):
+            print("No se hallo el estado objetivo, se necesita mas profundidad.")
+        if (result == "failure"):  
+            print("No se hallo el estado objetivo, no hay coincidencias en todos los estados expandidos.")
         
 
