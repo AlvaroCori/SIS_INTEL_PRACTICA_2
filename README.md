@@ -3,23 +3,36 @@
 ### Alvaro Bryan Cori Sanchez
 ### Ruyasi Chanove Guzman
 
-Description of the Problem
+### Description of the Problem
+
 The 8 puzzle is a game invented in 1874 by Noyes Palmer Chapmen. It’s based on a table of 3x3 cells of equal size. With 8 pieces and a free space. The objective of the game is moving the pieces in the free space (up, left, right and down) to achieve an arrangement that is previously given. In this case, the numbers are shown on an image.
+
 This problem could have less or greater complexity, usually determined by size which we will name n in this documentation. If we take a table of 2x2 (3-puzzle) or a table of 4x4 (15-puzzle). The quantity of movements that are required increases by a lot. 
- Description of the Solution
+
+### Description of the Solution
+
 This problem can be solved in various ways. But in this practice, we will solve it using Breadth First Search (BFS) and Iterative Deepening (IDDFS).
- Breadth First Search (BFS)
+
+#### Breadth First Search (BFS)
+
 Is a searching algorithm that traverses by levels which is based in a tree using a structure called Queue. A Queue is a linear structure that contains the elements and places the elements always first, in other words a FIFO structure (First in First Out).
+
 This algorithm works, searching by levels from the first node, then their direct successors and then the successors of these. The expansion of new successors occurs when we compare the objective state with the first of the queue, then we aggregate the successors in the queue, or to say it in other words, we pop the first node and if isn’t the objective state we append their successor and if we don’t get the objective state, we continue expanding/appending new nodes.
- Iterative Deepening (ID)
+
+#### Iterative Deepening (ID)
+
 The algorithm is based in DLS (Deep Limited Search) and in the DFS (Depth First Search).
 The algorithm is like we traverse a tree of variable height with DLS, then the algorithm will travel through the first node and if it does not find the objective state, then will travel to the second level, if it doesn’t find it, it will keeping looking to the next level and expanding itself, if it is not in the level, the way in which it looks for it it’s by depth.
 The algorithm has 3 outputs, “success” is when the goal is found, “cutoff” is when the depth limit is reached, and “failure” is when all the tree is traversed, and the goal isn’t found.
 The language used for the implementation of the algorithms is Python 3. This is a high-level language with many tools and libraries that we can take advantage of, which is tested by the queue, stack, read text files, use of OOP and other functionalities.
-Experiments And Results
-Initial State:
+
+#### Experiments And Results
+
+###### Initial State:
+
 A table with a random order of elements.
-Goal State:
+
+###### Goal State:
 A table with a sequential order of elements (1,2,3,…,n*n-1,0)
 Actions:
 Move the pieces to the free space. Minimum of 2 (for the corners). 3 (for the borders). And 4 for the middle squares.
