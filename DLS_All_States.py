@@ -1,6 +1,6 @@
 import copy
-from collections import deque
 from State import State
+import math
 #A class with table and a father
 
 #Compare all elements of 2 tables
@@ -73,7 +73,7 @@ def evaluateAction(state, action):
 #the transiction function change the new state
 def TF(state, action):
     #deepcopy copy a new object incluse the lists inside of a object
-    newState = copy.deepcopy(state)
+    newState = State(copy.deepcopy(state.table), state.father)
     row, col = findSpace(state)
     if (action == "l"):
         swap(newState,row,col,row,col-1)
@@ -96,25 +96,33 @@ def evaluateRepeatState(state):
     return True
 
 #The algorithm search for levels while expand the next level
-def BFS(initialState,goalState,actions):
 
+Counter = 0
+def flatten(t):
+    return tuple([item for sublist in t for item in sublist])
+def DLSRecursiveSearchState(state,states,actions,limit):
+        result = "failure"
 
-    open = deque([initialState])
-    counter = 0
-    while (len(open) != 0):
-        state = open.popleft()
-        counter += 1
-        if (goalTest(state, goalState)):
-            return True, state,counter
-        for a in actions:
-            
-            if (evaluateAction(state, a)):
-                #print(state.table)
-                #time.sleep(1)
-                successor = TF(state, a)
-                successor.father = state
-                if (evaluateRepeatState(successor)):
-                    if (goalTest(state, goalState)):
-                        return True, state,counter
-                    open.append(successor)
-    return False, None,counter
+        if (limit == 0) : return "cutoff", state   
+        else:
+            if (flatten(state.table) not in states):
+                states.add(flatten(state.table))
+                global Counter
+                Counter+=1
+            cutOffOcurred=False
+            for a in actions:
+                if (evaluateAction(state, a)):
+                    successor = TF(state,a)
+                    successor.father = state
+                    if (evaluateRepeatState(successor)):
+                        result, successor = DLSRecursiveSearchState(successor,states,actions,limit-1)
+                    if(result == "cutoff"): cutOffOcurred=True
+                    elif(result!="failure"): return result, successor
+            if(cutOffOcurred):
+                return "cutoff", state
+            else: 
+                return "failure", state
+def DLSSearchState(initialState,actions):
+    s = set()
+    DLSRecursiveSearchState(initialState,s,actions,int(math.log2(math.factorial(len(initialState.table)**2))+1))
+    return Counter
