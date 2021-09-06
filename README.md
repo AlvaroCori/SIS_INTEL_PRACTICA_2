@@ -1,26 +1,26 @@
-Sis Inteligentes - Pr·ctica 2
-Nombres:
-Alvaro Bryan Cori Sanchez
-Ruyasi Chanove Guzman
+#Sis Inteligentes - Pr√°ctica 2
+##Nombres:
+###Alvaro Bryan Cori Sanchez
+###Ruyasi Chanove Guzman
 
 Description of the Problem
-The 8 puzzle is a game invented in 1874 by Noyes Palmer Chapmen. Itís based on a table of 3x3 cells of equal size. With 8 pieces and a free space. The objective of the game is moving the pieces in the free space (up, left, right and down) to achieve an arrangement that is previously given. In this case, the numbers are shown on an image.
+The 8 puzzle is a game invented in 1874 by Noyes Palmer Chapmen. It‚Äôs based on a table of 3x3 cells of equal size. With 8 pieces and a free space. The objective of the game is moving the pieces in the free space (up, left, right and down) to achieve an arrangement that is previously given. In this case, the numbers are shown on an image.
 This problem could have less or greater complexity, usually determined by size which we will name n in this documentation. If we take a table of 2x2 (3-puzzle) or a table of 4x4 (15-puzzle). The quantity of movements that are required increases by a lot. 
  Description of the Solution
 This problem can be solved in various ways. But in this practice, we will solve it using Breadth First Search (BFS) and Iterative Deepening (IDDFS).
  Breadth First Search (BFS)
 Is a searching algorithm that traverses by levels which is based in a tree using a structure called Queue. A Queue is a linear structure that contains the elements and places the elements always first, in other words a FIFO structure (First in First Out).
-This algorithm works, searching by levels from the first node, then their direct successors and then the successors of these. The expansion of new successors occurs when we compare the objective state with the first of the queue, then we aggregate the successors in the queue, or to say it in other words, we pop the first node and if isnít the objective state we append their successor and if we donít get the objective state, we continue expanding/appending new nodes.
+This algorithm works, searching by levels from the first node, then their direct successors and then the successors of these. The expansion of new successors occurs when we compare the objective state with the first of the queue, then we aggregate the successors in the queue, or to say it in other words, we pop the first node and if isn‚Äôt the objective state we append their successor and if we don‚Äôt get the objective state, we continue expanding/appending new nodes.
  Iterative Deepening (ID)
 The algorithm is based in DLS (Deep Limited Search) and in the DFS (Depth First Search).
-The algorithm is like we traverse a tree of variable height with DLS, then the algorithm will travel through the first node and if it does not find the objective state, then will travel to the second level, if it doesnít find it, it will keeping looking to the next level and expanding itself, if it is not in the level, the way in which it looks for it itís by depth.
-The algorithm has 3 outputs, ìsuccessî is when the goal is found, ìcutoffî is when the depth limit is reached, and ìfailureî is when all the tree is traversed, and the goal isnít found.
+The algorithm is like we traverse a tree of variable height with DLS, then the algorithm will travel through the first node and if it does not find the objective state, then will travel to the second level, if it doesn‚Äôt find it, it will keeping looking to the next level and expanding itself, if it is not in the level, the way in which it looks for it it‚Äôs by depth.
+The algorithm has 3 outputs, ‚Äúsuccess‚Äù is when the goal is found, ‚Äúcutoff‚Äù is when the depth limit is reached, and ‚Äúfailure‚Äù is when all the tree is traversed, and the goal isn‚Äôt found.
 The language used for the implementation of the algorithms is Python 3. This is a high-level language with many tools and libraries that we can take advantage of, which is tested by the queue, stack, read text files, use of OOP and other functionalities.
 Experiments And Results
 Initial State:
 A table with a random order of elements.
 Goal State:
-A table with a sequential order of elements (1,2,3,Ö,n*n-1,0)
+A table with a sequential order of elements (1,2,3,‚Ä¶,n*n-1,0)
 Actions:
 Move the pieces to the free space. Minimum of 2 (for the corners). 3 (for the borders). And 4 for the middle squares.
 Transition Module
@@ -35,11 +35,11 @@ The quantity of states that the algorithms visited.
 
 EXPERIMENTS
 Experiments of N=2 (3_puzzle):
-For 3-Puzzle, we could take two different paths. Each of them has states that the other one couldnít achieve. For example in the path of the left, both routes traverse to the objective state. The right one is longer than the left one. Also, itís notable that the right path couldnít achieve the objective state even when we expanded every possible state.
+For 3-Puzzle, we could take two different paths. Each of them has states that the other one couldn‚Äôt achieve. For example in the path of the left, both routes traverse to the objective state. The right one is longer than the left one. Also, it‚Äôs notable that the right path couldn‚Äôt achieve the objective state even when we expanded every possible state.
 For the left path, we got 11 different states, and for the right one we got 13 different states, which gives us the result of 24 different combinations without repetitions that we could achieve on a 3-puzzle with an empty square.
 The states that were generated manually demonstrate that the input generates different states in the initial state of 3_puzzle. Both initial states are of 3 pieces, but the first has a degree of 2, and the other one has degree of 1.
 On the left example, the possible paths constraints two actions right square and up squares. Moving the piece at the left generates a greater quantity of states than the 4 states that generate the transition of when we move down the piece in the initial state.
-On the right path, it doesnít matter which direction you choose to move a piece, any of the paths could achieve the objective states.
+On the right path, it doesn‚Äôt matter which direction you choose to move a piece, any of the paths could achieve the objective states.
 Manually search for n = 2.
 Initial State:
 2 3
