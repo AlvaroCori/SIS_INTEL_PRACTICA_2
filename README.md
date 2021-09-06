@@ -1,7 +1,7 @@
 # Sis Inteligentes - Práctica 2
 ## Nombres:
-### Alvaro Bryan Cori Sanchez
-### Ruyasi Chanove Guzman
+#### Alvaro Bryan Cori Sanchez
+#### Ruyasi Chanove Guzman
 
 ### Description of the Problem
 
@@ -81,34 +81,36 @@ On the right path, it doesn’t matter which direction you choose to move a piec
  [3, 0]]
  
 ###### Height: 4
-BFS
-Number of total states: 11
-IDDFS
-Number of total states: 11
+Number of total states (BFS): 11
+Number of total states (IDDFS): 11
  
-Initial State:
-1 3
-2 0
-Objective State:
-1 2
-3 0
+##### Initial State:
+ 1 3
+ 2 0
+##### Objective State:
+ 1 2
+ 3 0
 There's no path from initial state to final state.
-Height: 11
-BFS
-Number of total states: 13
-IDDFS
-Number of total states: 13
- Experiments of N=3 (8-Puzzle)
+
+##### Height: 11
+Number of total states (BFS): 13
+Number of total states (IDDFS): 13
+ 
+ 
+##### Experiments of N=3 (8-Puzzle)
 We are implementing an algorithm to search the total of states of a random sequence of numbers for a table of 3 x 3 pieces. We implemented the DLS (Depth Limited Search) algorithm with a height that is calculated from the number of table pieces.
-Initial State:
-1 2 3
-7 4 6
-0 5 8
 
+##### Initial State:
+  1 2 3
+  7 4 6
+  0 5 8
 
+###### Objective State:
+  1 2 3
+  4 5 6
+  7 8 0
 
-Objective State:
-Number of all different states: 26931 states.
+##### Number of all different states: 26931 states.
 Height: 19
 We used a prefixed initial state and traversed through a state space search.  Using DFS and a counter.
 Clarify that we didn't reach the theoretical value of 9!/2 possible states. Nor the maximum value of 9!
