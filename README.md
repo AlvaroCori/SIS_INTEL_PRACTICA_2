@@ -1,5 +1,5 @@
-# Sis Inteligentes - Práctica 2
-## Nombres:
+# SIS-341 - Practice #2
+## Names:
 #### Alvaro Bryan Cori Sanchez
 #### Ruyasi Chanove Guzman
 
@@ -59,11 +59,16 @@ On the right path, it doesn’t matter which direction you choose to move a piec
 
 ###### Manually search for n = 2.
 ###### Initial State:
+ 
  2 3
+ 
  1 0
+ 
 ###### Objective State:
  1 2
+ 
  3 0
+ 
 ###### Path from initial state to goal state.
 [[2, 3],
  [1, 0]]
@@ -85,11 +90,17 @@ Number of total states (BFS): 11
 Number of total states (IDDFS): 11
  
 ##### Initial State:
+ 
  1 3
+ 
  2 0
+
 ##### Objective State:
+ 
  1 2
+
  3 0
+
 There's no path from initial state to final state.
 
 ##### Height: 11
@@ -101,37 +112,49 @@ Number of total states (IDDFS): 13
 We are implementing an algorithm to search the total of states of a random sequence of numbers for a table of 3 x 3 pieces. We implemented the DLS (Depth Limited Search) algorithm with a height that is calculated from the number of table pieces.
 
 ##### Initial State:
+
   1 2 3
+
   7 4 6
+  
   0 5 8
 
 ###### Objective State:
+  
   1 2 3
+  
   4 5 6
+  
   7 8 0
 
 ##### Number of all different states: 26931 states.
-Height: 19
+##### Height: 19
 We used a prefixed initial state and traversed through a state space search.  Using DFS and a counter.
 Clarify that we didn't reach the theoretical value of 9!/2 possible states. Nor the maximum value of 9!
 
-Experiments of N=4:
+#### Experiments of N=4:
+
 We compared the number of states, time of execution and space of execution with the algorithms BFS and ID.
 In the worst case scenario, we will go until the last state searching the objective state and while we are searching, we check if we are repeating the same state, from the new state to the last of their ancestors recurring in a n log(n) time complexity.
  
-Initial State:
+###### Initial State:
+ 
   5   1   3   4
   2 10   6   7
   9   0 12   8
-13 14 11 15
+  13 14 11 15
 
-Objective State:
+
+###### Objective State:
+  
   1   2   3   4
   5   6   7   8
   9 10 11 12
-13 14 15   0
+  13 14 15   0
  
-Path from initial state to goal state.
+
+###### Path from initial state to goal state.
+
 [[5, 1, 3, 4], [2, 10, 6, 7], [9, 0, 12, 8], [13, 14, 11, 15]]
 [[5, 1, 3, 4], [2, 0, 6, 7], [9, 10, 12, 8], [13, 14, 11, 15]]
 [[5, 1, 3, 4], [0, 2, 6, 7], [9, 10, 12, 8], [13, 14, 11, 15]]
@@ -144,32 +167,45 @@ Path from initial state to goal state.
 [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 0, 12], [13, 14, 11, 15]]
 [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 0, 15]]
 [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 0]]
-Height = 11 
-BFS
-Number of states from initial state to goal state:  8516 states
-Time of Execution:
+
+###### Height = 11 
+
+
+##### BFS
+
+###### Number of states from initial state to goal state:  8516 states
+
+###### Time of Execution:
 The algorithm executed in 7.93 seconds.
- Space of Execution:
+
+###### Space of Execution:
 S = O(b^d)
 S = 4^11 * (32 * 16) bits
 S = 2147483648 bits => S = 2.15 Gigabits
-   	N: The quantity of total states.
+N: The quantity of total states.
  
-IDDFS
-Number of states from initial state to goal state: 1386 states.
-Time of Execution:
+
+##### IDDFS
+
+###### Number of states from initial state to goal state: 1386 states.
+
+###### Time of Execution:
    	The algorithm executed in 5.28 seconds.
-Space of Execution:
-S = O(b*d)
-S = 4*11 * (32 * 16) bits
+
+###### Space of Execution:
+S = O(b* d)
+S = 4* 11 * (32 * 16) bits
 S = 22528 bits => S = 122.528 kilobits
+
 Given the initial state of ![initialState.url] and the objectiveState of ![objectiveState]. We compared the time execution which theoretically is O(b^d) where b=branches, and d = depth. This is contrasted by a timer on our program which gives the time: (insert time)
 About space complexity we are just getting the Queue.size() for the BFS and the Stack.Size() for the IDDFS.
 Log(d) is aggregated on both time complexities, BFS and IDDFS. Because the algorithm searches repeated states until the first state.
 
  
  
-Conclusions
+
+#### Conclusions
+
 We implemented both algorithms using some Python libraries to simplify the implementation of algorithm structure, as well as some tweaks like reading from text files.
 
 For the first experiment we manually expanded the tree of two different initial cases. One with solution and one without solution. By this way, we managed to get all states in a table of 2x2, the total different states are 24 which prove all the possible theoretical states (4! = 24).
@@ -182,8 +218,10 @@ The BFS algorithm consumes very much space while the IDDFS needs less space. For
 
 To clarify, in a worst case scenario in which both algorithms search for the same goal that is in the last state of the three, both algorithms use the same quantity of states.
 
-Bibliography
-Tail of Python: (from collections import deque)
+
+##### Bibliography
+
+Python Queue: (from collections import deque)
 https://docs.hektorprofe.net/python/colecciones-de-datos/colas/
  Copy objects: (import copy)
 https://pymotw.com/2/copy/
