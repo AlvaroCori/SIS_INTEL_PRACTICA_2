@@ -1,7 +1,7 @@
-#Sis Inteligentes - Práctica 2
-##Nombres:
-###Alvaro Bryan Cori Sanchez
-###Ruyasi Chanove Guzman
+# Sis Inteligentes - Práctica 2
+## Nombres:
+### Alvaro Bryan Cori Sanchez
+### Ruyasi Chanove Guzman
 
 Description of the Problem
 The 8 puzzle is a game invented in 1874 by Noyes Palmer Chapmen. It’s based on a table of 3x3 cells of equal size. With 8 pieces and a free space. The objective of the game is moving the pieces in the free space (up, left, right and down) to achieve an arrangement that is previously given. In this case, the numbers are shown on an image.
