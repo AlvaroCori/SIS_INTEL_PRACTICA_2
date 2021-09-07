@@ -1,4 +1,5 @@
 from TF_of_n_pieces import *
+from collections import deque
 #The algorithm search for levels while expand the next level
 def BFS(initialState,goalState,actions):
 

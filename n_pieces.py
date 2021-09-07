@@ -13,14 +13,18 @@ def loadTxt(path, file):
     lineaNumeros = []
     elements = 0
     #open the file
-    with open(f"{path}/{file}","r") as archivo:
-        for linea in archivo:
-            #erases the jumps ("\n"), split into space and convert in numbers
-            lineaNumeros = list(map(lambda n : int(n) , linea.replace("\n","").split(" ")))
-            numbers.append(lineaNumeros)
-    elements = len(numbers)
-    #return initial and final states
-    return [numbers[i] for i in range(0,int(elements/2))], [numbers[i] for i in range(int(elements/2),elements)]
+    try:
+        with open(f"{path}/{file}","r") as archivo:
+            for linea in archivo:
+                #erases the jumps ("\n"), split into space and convert in numbers
+                lineaNumeros = list(map(lambda n : int(n) , linea.replace("\n","").split(" ")))
+                numbers.append(lineaNumeros)
+        elements = len(numbers)
+        #return initial and final states
+        return [numbers[i] for i in range(0,int(elements/2))], [numbers[i] for i in range(int(elements/2),elements)]
+    except:
+        print("Archivo no encontrado.")
+    return [],[]
 
 def results(state):
     resultTables = []
@@ -35,7 +39,7 @@ def results(state):
     print(f"La altura del arbol: {len(resultTables)-1}")
 
 actions = ["l","u","r","d"]
-nameTxt = "input_n_3.txt"
+nameTxt = "input_n_4.txt"
 option = -1
 initialTable, goalTable = loadTxt(os.path.abspath(os.getcwd()), nameTxt)
 initialState = State(initialTable)
