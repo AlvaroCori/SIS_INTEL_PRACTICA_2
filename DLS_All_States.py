@@ -19,7 +19,7 @@ def DLSRecursiveSearchState(state,states,actions,limit):
                 if (evaluateAction(state, a)):
                     successor = TF(state,a)
                     successor.father = state
-                    if (flatten(state.table) in states):
+                    if (evaluateRepeatState(successor)):
                         result, successor = DLSRecursiveSearchState(successor,states,actions,limit-1)
                     if(result == "cutoff"): cutOffOcurred=True
                     elif(result!="failure"): return result, successor
@@ -32,6 +32,6 @@ def DLSSearchState(initialState,actions):
     global Counter
     Counter = 0
     s = set()
-    DLSRecursiveSearchState(initialState,s,actions,20)
+    DLSRecursiveSearchState(initialState,s,actions,30)
     return Counter
     
