@@ -134,7 +134,11 @@ implements more height the algorithm .
 
 ##### Number of all different states: 
 19 levels 26931 states.
+
+Total states with change of two pieces: 53862
 25 levels states.
+
+
 ##### Height: 19
 We used a prefixed initial state and traversed through a state space search.  Using DFS and a counter.
 Clarify that we didn't reach the theoretical value of 9! possible states. Nor the maximum value of 9! but while we put more height the output is approaching 9 factorial. 
@@ -236,7 +240,6 @@ The algorithm executed in 7.93 seconds.
 S = O(b^d)
 S = 4^11 * (32 * 16) bits
 S = 2147483648 bits => S = 2.15 Gigabits
-N: The quantity of total states.
  
 
 ##### IDDFS
