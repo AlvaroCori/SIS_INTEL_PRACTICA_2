@@ -134,10 +134,9 @@ implements more height the algorithm .
 
 ##### Number of all different states: 
 19 levels 26931 states.
-
 Total states with change of two pieces: 53862
-25 levels states.
-
+25 levels states: 170273
+Total states with change of two pieces: 340546
 
 ##### Height: 19
 We used a prefixed initial state and traversed through a state space search.  Using DFS and a counter.
@@ -265,15 +264,15 @@ Log(d) is aggregated on both time complexities, BFS and IDDFS. Because the algor
 
 We implemented both algorithms using some Python libraries to simplify the implementation of algorithm structure, as well as some tweaks like reading from text files.
 
-For the first experiment we manually expanded the tree of two different initial cases. One with solution and one without solution. By this way, we managed to get all states in a table of 2x2, the total different states are 24 which prove all the possible theoretical states (4! = 24).
+For the first experiment we manually expanded the tree of two different initial cases in order to get all states of 3_puzzle. One with solution and one without solution. By this way, we managed to get all states in a table of 2x2, the total different states are 24 which prove all the possible theoretical states (4! = 24).
 
-For the second experiment we put a table with a random order in order to get all different states in the algorithm. If we desire get all combinations (factorial of 9) we need to move the pieces in differents initial states.
+For the second experiment we put a table with a random order in order to get all different states in the algorithm. If we desire get all combinations (factorial of 9) we need to move 2 pieces in differents initial states similar at the previous experiment, when we use more heights the number of states is more similar a (9!=362880).
 
-For the third experiment we compare the quantity of states, the time execution and the space execution. This experiment checks the bigger difference between BFS and IDDFS. While BFS needs a lot of time, the IDDFS only needs a small fraction. 
+For the third experiment we compare the quantity of states, the time execution and the space execution. This experiment checks the bigger difference between BFS and IDDFS. While BFS needs a lot of time, the IDDFS consume less time tha BFS. 
 
-The BFS algorithm consumes very much space while the IDDFS needs less space. For the difference in quantity of states, the BFS uses too many states while the algorithm searches level for level, while the IDDFS searches in profundity and uses less states. 
+The BFS algorithm consumes very much space while the IDDFS needs less space. For the difference in quantity of states, the BFS uses too many states while the algorithm searches level for level, IDDFS searches in profundity and uses less states. 
 
-To clarify, in a worst case scenario in which both algorithms search for the same goal that is in the last state of the three, both algorithms use the same quantity of states.
+To clarify, in a worst case scenario in which both algorithms search for the same goal that is in the last state of the tree, both algorithms use the same quantity of states, like a example the puzzle_3.
 
 
 ##### Bibliography
