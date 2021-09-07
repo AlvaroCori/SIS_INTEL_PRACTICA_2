@@ -26,6 +26,9 @@ The algorithm is like we traverse a tree of variable height with DLS, then the a
 The algorithm has 3 outputs, “success” is when the goal is found, “cutoff” is when the depth limit is reached, and “failure” is when all the tree is traversed, and the goal isn’t found.
 The language used for the implementation of the algorithms is Python 3. This is a high-level language with many tools and libraries that we can take advantage of, which is tested by the queue, stack, read text files, use of OOP and other functionalities.
 
+#### Python
+The language chosen for this practice will be Python 3, the language is useful for implement libraries, objects and all we need to manipulate the puzzles (list to list) and a high-level code. The language have libraries for queue for the BFS, an easy txt reader, an fast use of lists, a hash structure called set and a timer for calculate easily the time of execution, for more information we can visit the links of the bibliography. 
+
 #### Experiments And Results
 
 ###### Initial State:
@@ -48,8 +51,8 @@ The quantity of states that the algorithms visited.
 
 ### EXPERIMENTS
 ###### Experiments of N=2 (3_puzzle):
-For 3-Puzzle, we could take two different paths. Each of them has states that the other one couldn’t achieve. For example in the path of the left, both routes traverse to the objective state. The right one is longer than the left one. Also, it’s notable that the right path couldn’t achieve the objective state even when we expanded every possible state.
-For the left path, we got 11 different states, and for the right one we got 13 different states, which gives us the result of 24 different combinations without repetitions that we could achieve on a 3-puzzle with an empty square.
+For 3-Puzzle, we could take two different paths in order to get all the states of a 3_puzzle. Each of them has states that the other one couldn’t achieve. For example in the path of the left, both routes traverse to the objective state. The right one is longer than the left one. Also, it’s notable that the right path couldn’t achieve the objective state even when we expanded every possible state.
+For the left path, we got 12 different states, and for the right one we got 12 different states, which gives us the result of 24 different combinations without repetitions that we could achieve on a 3-puzzle with an empty square.
 
 The states that were generated manually demonstrate that the input generates different states in the initial state of 3_puzzle. Both initial states are of 3 pieces, but the first has a degree of 2, and the other one has degree of 1.
 
@@ -88,7 +91,8 @@ On the right path, it doesn’t matter which direction you choose to move a piec
 ###### Height: 4
 Number of total states (BFS): 11
 Number of total states (IDDFS): 11
- 
+Number of states from the initial state to the goal state (BFS): 4
+Number of states from the initial state to the goal state (IDDFS): 4
 ##### Initial State:
  
  1 3
@@ -109,7 +113,8 @@ Number of total states (IDDFS): 13
  
  
 ##### Experiments of N=3 (8-Puzzle)
-We are implementing an algorithm to search the total of states of a random sequence of numbers for a table of 3 x 3 pieces. We implemented the DLS (Depth Limited Search) algorithm with a height that is calculated from the number of table pieces.
+We are implementing an algorithm to search the total of states of a random sequence of numbers for a table of 3 x 3 pieces. We implemented the DLS (Depth Limited Search) algorithm with a height of 29 that is calculated from the number of table pieces, when we find in more levels the aproximation to 9 factorial is more evident, but while we
+implements more height the algorithm .
 
 ##### Initial State:
 
@@ -127,10 +132,12 @@ We are implementing an algorithm to search the total of states of a random seque
   
   7 8 0
 
-##### Number of all different states: 26931 states.
+##### Number of all different states: 
+19 levels 26931 states.
+25 levels states.
 ##### Height: 19
 We used a prefixed initial state and traversed through a state space search.  Using DFS and a counter.
-Clarify that we didn't reach the theoretical value of 9!/2 possible states. Nor the maximum value of 9!
+Clarify that we didn't reach the theoretical value of 9! possible states. Nor the maximum value of 9! but while we put more height the output is approaching 9 factorial. 
 
 #### Experiments of N=4:
 
